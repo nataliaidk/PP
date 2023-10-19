@@ -1,7 +1,5 @@
-﻿// ConsoleApplication2.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
+// ConsoleApplication2.cpp : Ten plik zawiera funkcję „main”. W nim rozpoczyna się i kończy wykonywanie programu.
 //
-
-
 
 #include "zad1_2_3.h"
 
@@ -46,7 +44,7 @@ bool b_dealloc_table_2_dim(int*** piTable, int iSizeX, int iSizeY) {
         delete[](*piTable)[i];
     }
     delete[](*piTable);
-    *piTable = nullptr;
+    *piTable = NULL;
 
     return true;
     return true;
@@ -65,7 +63,7 @@ void v_alloc_table_fill_34(int iSize, bool *bError) {
              table[i] = ITABLE_VALUE;
           }
 
-    printf("Tablica po wypelnieniu wartosciami 34:\n");
+    printf("Table after being filled with 34:\n");
     for (int i = 0; i < iSize; i++) {
         printf("%d ", table[i]);
     }
@@ -80,34 +78,32 @@ void v_alloc_table_fill_34(int iSize, bool *bError) {
 int main() {
 
     int** pi_table;
-    int i_sizeX = 5;
-    int i_sizeY = 3;
     bool bError = false; 
-    int size = 10;
+ 
     v_alloc_table_fill_34(ISIZE, &bError);
 
     if (bError) {
-        std::cout << "Prawidlowa alokacja pamieci dla tablicy jednowymiarowej i wypelnienie jej wartosciami." << std::endl;
+        std::cout << "One dimentional table: correct allocation and filling" << std::endl;
     }
     else {
-        std::cout << "Blad alokacji pamięci dla tablicy jednowymiarowej." << std::endl;
+        std::cout << "One dimentional table: incorrect allocation" << std::endl;
     }
 
     if (b_alloc_table_2_dim(&pi_table, ISIZE_X, ISIZE_Y)) {
-        std::cout << "Prawidlowa alokacja pamieci dla tablicy dwuwymiarowej." << std::endl;
+        std::cout << "Two dimentional table: correct allocation" << std::endl;
     }
     else {
-        std::cout << "Blad alokacji pamięci dla tablicy dwuwymiarowej." << std::endl;
+        std::cout << "Two dimentional table: incorrect allocation" << std::endl;
     }
 
   
    
 
     if (b_dealloc_table_2_dim(&pi_table, ISIZE_X, ISIZE_Y)) {
-        std::cout << "Prawidlowa dealokacja pamieci dla tablicy dwuwymiarowej." << std::endl;
+        std::cout << "Two dimentional table: correct deallocation" << std::endl;
     }
     else {
-        std::cout << "Blad dealokacji pamieci dla tablicy dwuwymiarowej." << std::endl;
+        std::cout << "Two dimentional table: incorrect deallocation" << std::endl;
     }
     
 }
